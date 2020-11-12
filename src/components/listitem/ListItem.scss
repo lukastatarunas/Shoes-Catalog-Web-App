@@ -1,0 +1,67 @@
+.list-item-container {
+  display: flex;
+  border: 3px solid #d0d0d0;
+  box-sizing: border-box;
+  border-radius: 5px;
+  width: 520px;
+  cursor: pointer;
+
+  &:hover {
+    border: 3px solid #ff0000;
+  }
+
+  .list-item-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 50px;
+
+    .list-item-brand {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 13px;
+      line-height: 15px;
+      color: #000000;
+    }
+
+    .list-item-title {
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 17px;
+      line-height: 20px;
+      color: #000000;
+      padding-top: 12px;
+    }
+
+    .price-container {
+      display: flex;
+      padding-top: 12px;
+
+      .regular-price {
+        padding-right: 35px;
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 15px;
+        text-decoration-line: line-through;
+        color: #777777;
+        padding-top: 12px;
+      }
+
+      .final-price {
+        font-family: Roboto;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 15px;
+        line-height: 18px;
+        color: #ffffff;
+        background-color: red;
+        padding: 10px;
+        border-radius: 5px;
+      }
+    }
+  }
+}

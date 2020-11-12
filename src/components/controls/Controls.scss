@@ -1,0 +1,77 @@
+.category {
+  display: flex;
+
+  h3 {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 29px;
+    color: #000000;
+    height: 29px;
+    padding: 35px 380px 35px 100px;
+  }
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 0px 100px;
+
+  input {
+    width: 453px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #777777;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+    background: url("https://img.icons8.com/fluent-systems-regular/24/000000/search.png")
+      no-repeat scroll 10px 10px;
+    padding-left: 35px;
+  }
+
+  input:focus::placeholder {
+    color: transparent;
+  }
+
+  ::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    padding-left: 10px;
+    color: #000000;
+    opacity: 1; /* Firefox */
+  }
+
+  :-ms-input-placeholder {
+    /* Internet Explorer 10-11 */
+    padding-left: 10px;
+    color: #000000;
+  }
+
+  ::-ms-input-placeholder {
+    /* Microsoft Edge */
+    padding-left: 10px;
+    color: #000000;
+  }
+
+  select {
+    width: 330px;
+    height: 48px;
+    background: #ffffff;
+    border: 1px solid #777777;
+    box-sizing: border-box;
+    border-radius: 5px;
+    cursor: pointer;
+
+    option {
+      width: 47px;
+      height: 18px;
+      font-family: Roboto;
+      font-style: normal;
+      font-weight: normal;
+      font-size: 15px;
+      line-height: 18px;
+      color: #777777;
+    }
+  }
+}

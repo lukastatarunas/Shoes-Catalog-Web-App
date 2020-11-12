@@ -1,25 +1,49 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from './components/header/Header';
+import Controls from './components/controls/Controls';
+import List from './components/list/List';
+import Selected from './components/selected/Selected';
+import { PRODUCTS } from './data';
+import './App.scss';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+const App = () => {
+    const [products, setProducts] = useState(PRODUCTS);
+    const [searchValue, setSearchValue] = useState('');
+
+    const handleSearchChange = (event) => {
+        setSearchValue(event.target.value);
+        handleFilter();
+    };
+
+    const handleFilter = () => {
+        const filteredProducts = [...PRODUCTS].filter((product) => {
+            return product.title.toLowerCase().includes(searchValue.toLowerCase());
+        });
+        setProducts(filteredProducts);
+    };
+
+    const handleSort = (type) => {
+        const types = {
+            brand: 'brand',
+            title: 'title',
+            price: 'price',
+        };
+        const sortProperty = types[type];
+        const sortedProducts =
+            sortProperty === 'price'
+                ? [...products].sort((a, b) => (a[sortProperty].finalPrice > b[sortProperty].finalPrice ? 1 : -1))
+                : [...products].sort((a, b) => (a[sortProperty] > b[sortProperty] ? 1 : -1));
+        setProducts(sortedProducts);
+    };
+
+    return (
+        <div className='App'>
+            <Header />
+            <Controls handleSearchChange={handleSearchChange} handleSort={(event) => handleSort(event.target.value)} />
+            <List products={products} />
+            <Selected />
+        </div>
+    );
+};
 
 export default App;
